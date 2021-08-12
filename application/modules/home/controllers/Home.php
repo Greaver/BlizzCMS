@@ -85,12 +85,21 @@ class Home extends MX_Controller {
     {
         $this->load->library('migration');
 
+        
+        if ($this->input->method() == 'post') {
+            echo 'Entras por post';
+        }
+        else {
+            echo 'No entras por post';
+        }
+        /*
         if ($this->migration->current() === FALSE)
         {
             show_error($this->migration->error_string());
         } else {
             redirect(base_url());
         }
+        */
     }
 
     public function setconfig()

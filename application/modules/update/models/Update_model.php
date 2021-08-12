@@ -82,6 +82,7 @@ class Update_model extends CI_Model
 		{
 			// No new update
 			return 'UpdnotFound';
-		}
+		} 
 	}
+
 }

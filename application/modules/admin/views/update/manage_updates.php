@@ -100,7 +100,7 @@
         e.preventDefault();
 
         $.ajax({
-          url:"<?= base_url($lang.'/admin/cms/update'); ?>",
+          url:"<?= base_url($lang.'/dbmigrate'); ?>",
           method:"POST",
           dataType:"text",
           beforeSend: function(){
@@ -171,7 +171,7 @@
                 'outEffect': 'slideRight'
               });
             }
-            window.location.replace("<?= base_url('dbmigrate'); ?>");
+            // window.location.replace("<?= base_url('dbmigrate'); ?>");
           }
         });
       }
