@@ -17,6 +17,11 @@ class General_model extends CI_Model {
         return $date->getTimestamp();
     }
 
+    public function getMigrationVersion()
+    {
+        return $this->db->select('version')->get('migrations')->row('version');
+    }
+
     public function getMaintenance()
     {
         $config = $this->config->item('maintenance_mode');

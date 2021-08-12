@@ -81,7 +81,7 @@ $lang['button_unban'] = 'Unban';
 $lang['button_ban'] = 'Ban';
 $lang['button_remove'] = 'Remove';
 $lang['button_grant'] = 'Grant';
-$lang['button_update_version'] = 'Update to latest version';
+$lang['button_update_version'] = 'Update DB to version %s ';
 
 /*Table header Lang*/
 $lang['table_header_subcategory'] = 'Select a subcategory';
@@ -266,8 +266,9 @@ $lang['log_gm_assigned'] = 'Received GM rank';
 $lang['log_gm_removed'] = 'The GM rank was removed';
 
 /*CMS Lang*/
-$lang['cms_version_currently'] = 'This version is currently running';
-$lang['cms_warning_update'] = 'When the cms is updated the configuration can be restored to the default depending on the changes made to each version.';
+$lang['cms_version_currently'] = 'You are currently using the most recent version of migrations: %s version.';
+$lang['cms_version_need_update'] = 'You migrations can upgrade to version %s, this way you will have the latest version of the update installed..';
+$lang['cms_warning_update'] = 'When the CMS DB is updated the configuration can be restored to the default depending on the changes made to each version.';
 $lang['cms_php_version'] = 'PHP Version';
 $lang['cms_allow_fopen'] = 'allow_url_fopen';
 $lang['cms_allow_include'] = 'allow_url_include';

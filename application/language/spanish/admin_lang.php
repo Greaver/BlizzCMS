@@ -81,7 +81,7 @@ $lang['button_unban'] = 'Desbanear';
 $lang['button_ban'] = 'Banear';
 $lang['button_remove'] = 'Remover';
 $lang['button_grant'] = 'Conceder';
-$lang['button_update_version'] = 'Actualizar a la última versión';
+$lang['button_update_version'] = 'Actualizar DB a la versión %s ';
 
 /*Table header Lang*/
 $lang['table_header_subcategory'] = 'Selecciona una subcategoría';
@@ -266,7 +266,8 @@ $lang['log_gm_assigned'] = 'Recibido rango de GM';
 $lang['log_gm_removed'] = 'El rango de GM fué eliminado';
 
 /*CMS Lang*/
-$lang['cms_version_currently'] = 'Esta versión se está ejecutando actualmente';
+$lang['cms_version_currently'] = 'Actualmente tienes la última versión de migraciones instalada: %s version.';
+$lang['cms_version_need_update'] = 'Tus migraciones pueden ser actualizada a la versión %s, con esto tendrás la update del CMS funcional.';
 $lang['cms_warning_update'] = 'Cuando se actualice el cms, la configuración se puede restaurar a la predeterminada de acuerdo con los cambios realizados en cada versión.';
 $lang['cms_php_version'] = 'Versión PHP';
 $lang['cms_allow_fopen'] = 'allow_url_fopen';

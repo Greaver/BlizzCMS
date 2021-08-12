@@ -25,12 +25,18 @@
                     <div class="uk-grid uk-grid-small" data-uk-grid>
                       <div class="uk-width-auto@m uk-text-center uk-text-left@m">
                         <h3 class="uk-h3 uk-text-bold uk-margin-remove"><span uk-icon="icon: blizzcms-icon;ratio: 0.8"></span> V<?= $this->update_model->getCurrentVersion(); ?> </h3>
-                        <p class="uk-margin-small uk-text-small"><?= $this->lang->line('cms_version_currently'); ?></p>
                       </div>
                       <div class="uk-width-expand uk-text-center uk-text-right@m">
-                        <button href="<?= base_url('admin/cms/update') ?>" class="uk-button uk-button-primary uk-button-large" id="button_updatecms" onclick="UpdateCMS(event)"><i class="fas fa-sync fa-spin"></i> <?= $this->lang->line('button_update_version'); ?></button>
+                        <?php if($this->wowgeneral->getMigrationVersion() != config_item('migration_version')): ?>
+                        <button href="<?= base_url('admin/cms/update') ?>" class="uk-button uk-button-primary uk-button-large" id="button_updatecms" onclick="UpdateCMS(event)"><i class="fas fa-sync fa-spin"></i> <?= lang('button_update_version', config_item('migration_version')); ?></button>
+                        <?php endif; ?>
                       </div>
                     </div>
+                    <?php if($this->wowgeneral->getMigrationVersion() == config_item('migration_version')): ?>
+                    <p class="uk-margin-small uk-text-small"><?= lang('cms_version_currently', $this->wowgeneral->getMigrationVersion()); ?></p>
+                    <?php else: ?>
+                    <p class="uk-margin-small uk-text-small"><?= lang('cms_version_need_update', config_item('migration_version')); ?></p>
+                    <?php endif; ?>
                     <p class="uk-text-small uk-margin-small"><span class="uk-text-bold uk-text-warning"><i class="fas fa-exclamation-triangle"></i> <?= $this->lang->line('notification_title_warning'); ?>:</span> <?= $this->lang->line('cms_warning_update'); ?></p>
                   </div>
                 </div>
