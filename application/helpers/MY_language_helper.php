@@ -1,42 +1,14 @@
 <?php
 if(!defined('BASEPATH')) exit('No direct script access allowed');
 
-function lang($line, $id = '')
+function lang()
 {
     $CI =& get_instance();
-    $line = $CI->lang->line($line);
-
     $args = func_get_args();
+    $line = array_shift($args);
+    $lang = $CI->lang->line($line);
 
-    if(is_array($args))
-    {
-        if(count($args) > 1)
-        {
-            for($i = 0; $i < 2; $i++)
-            {
-                array_shift($args);
-            }
-        }
-        else
-        {
-            array_shift($args);
-        }
-    }
-
-    if(is_array($args) && count($args))
-    {
-        foreach($args as $arg)
-        {
-            $line = str_replace_first('%s', $arg, $line);
-        }
-    }
-
-    if (!empty($id))
-    {
-        $line = '<label for="'.$id.'">'.$line."</label>";
-    }
-
-    return $line;
+    return vsprintf($lang, $args);
 }
 
 function str_replace_first($search_for, $replace_with, $in)
