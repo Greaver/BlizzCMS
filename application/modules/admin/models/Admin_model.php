@@ -282,34 +282,9 @@ class Admin_model extends CI_Model {
         return $this->db->select('*')->where('id', $id)->get('menu')->num_rows();
     }
 
-    public function getMenuSpecifyName($id)
+    public function getMenuSpecifyRow($id, $row)
     {
-        return $this->db->select('name')->where('id', $id)->get('menu')->row('name');
-    }
-
-    public function getMenuSpecifyUrl($id)
-    {
-        return $this->db->select('url')->where('id', $id)->get('menu')->row('url');
-    }
-
-    public function getMenuSpecifyIcon($id)
-    {
-        return $this->db->select('icon')->where('id', $id)->get('menu')->row('icon');
-    }
-
-    public function getMenuSpecifyMain($id)
-    {
-        return $this->db->select('main')->where('id', $id)->get('menu')->row('main');
-    }
-
-    public function getMenuSpecifyChild($id)
-    {
-        return $this->db->select('child')->where('id', $id)->get('menu')->row('child');
-    }
-
-    public function getMenuSpecifyType($id)
-    {
-        return $this->db->select('type')->where('id', $id)->get('menu')->row('type');
+        return $this->db->select($row)->where('id', $id)->get('menu')->row($row);
     }
 
     public function insertRealm($hostname, $username, $password, $database, $realm_id, $soaphost, $soapuser, $soappass, $soapport, $emulator)
@@ -637,8 +612,7 @@ class Admin_model extends CI_Model {
         $date = $this->wowgeneral->getTimestamp();
         $rand = rand(1, 15);
 
-        if($this->pagecheckUri($uri) == TRUE)
-        {
+        if($this->pagecheckUri($uri) == TRUE){
             $new_uri = $uri."-".$rand;
 
             $data = array(
@@ -650,8 +624,7 @@ class Admin_model extends CI_Model {
 
             $this->db->insert('pages', $data);
             return true;
-        }
-        else
+        }else{
             $data1 = array(
                 'title' => $title,
                 'uri_friendly' => $uri,
@@ -661,6 +634,7 @@ class Admin_model extends CI_Model {
 
             $this->db->insert('pages', $data1);
             return true;
+        }
     }
 
     public function updateSpecifyPage($id, $title, $uri, $description)

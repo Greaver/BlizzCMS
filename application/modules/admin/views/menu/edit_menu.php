@@ -18,7 +18,7 @@
                   <div class="uk-form-controls">
                     <div class="uk-inline uk-width-1-1">
                       <span class="uk-form-icon uk-form-icon-flip"><i class="fas fa-pen"></i></span>
-                      <input class="uk-input" type="text" id="menu_name" value="<?= $this->admin_model->getMenuSpecifyName($idlink); ?>" placeholder="<?= $this->lang->line('placeholder_name'); ?>" required>
+                      <input class="uk-input" type="text" id="menu_name" value="<?= $this->admin_model->getMenuSpecifyRow($idlink, 'name'); ?>" placeholder="<?= $this->lang->line('placeholder_name'); ?>" required>
                     </div>
                   </div>
                 </div>
@@ -27,7 +27,7 @@
                   <div class="uk-form-controls">
                     <div class="uk-inline uk-width-1-1">
                       <span class="uk-form-icon uk-form-icon-flip"><i class="fas fa-link"></i></span>
-                      <input class="uk-input" type="text" id="menu_url" value="<?= $this->admin_model->getMenuSpecifyUrl($idlink); ?>" placeholder="<?= $this->lang->line('placeholder_url'); ?>" required>
+                      <input class="uk-input" type="text" id="menu_url" value="<?= $this->admin_model->getMenuSpecifyRow($idlink, 'url'); ?>" placeholder="<?= $this->lang->line('placeholder_url'); ?>" required>
                     </div>
                   </div>
                 </div>
@@ -40,7 +40,7 @@
                   <div class="uk-form-controls">
                     <div class="uk-inline uk-width-1-1">
                       <span class="uk-form-icon uk-form-icon-flip"><i class="fab fa-font-awesome-flag"></i></span>
-                      <input class="uk-input" type="text" id="menu_icon" value="<?= $this->admin_model->getMenuSpecifyIcon($idlink); ?>" placeholder="<?= $this->lang->line('placeholder_icon_name'); ?>" required>
+                      <input class="uk-input" type="text" id="menu_icon" value="<?= $this->admin_model->getMenuSpecifyRow($idlink, 'icon'); ?>" placeholder="<?= $this->lang->line('placeholder_icon_name'); ?>" required>
                     </div>
                   </div>
                 </div>
@@ -49,8 +49,8 @@
                   <div class="uk-form-controls">
                     <select class="uk-select" id="menu_main">
                       <option value="0"><?= $this->lang->line('notification_select_type'); ?></option>
-                      <option value="1" <?php if($this->admin_model->getMenuSpecifyMain($idlink) == '1') echo 'selected'; ?>><?= $this->lang->line('option_normal'); ?></option>
-                      <option value="2" <?php if($this->admin_model->getMenuSpecifyMain($idlink) == '2') echo 'selected'; ?>><?= $this->lang->line('option_dropdown'); ?></option>
+                      <option value="1" <?php if($this->admin_model->getMenuSpecifyRow($idlink, 'main') == '1') echo 'selected'; ?>><?= $this->lang->line('option_normal'); ?></option>
+                      <option value="2" <?php if($this->admin_model->getMenuSpecifyRow($idlink, 'main') == '2') echo 'selected'; ?>><?= $this->lang->line('option_dropdown'); ?></option>
                     </select>
                   </div>
                 </div>
@@ -63,7 +63,7 @@
                   <div class="uk-form-controls">
                     <div class="uk-inline uk-width-1-1">
                       <span class="uk-form-icon uk-form-icon-flip"><i class="fas fa-bars"></i></span>
-                      <input class="uk-input" type="number" id="menu_child" value="<?= $this->admin_model->getMenuSpecifyChild($idlink); ?>" placeholder="<?= $this->lang->line('table_header_id'); ?>" required>
+                      <input class="uk-input" type="number" id="menu_child" value="<?= $this->admin_model->getMenuSpecifyRow($idlink, 'child'); ?>" placeholder="<?= $this->lang->line('table_header_id'); ?>" required>
                     </div>
                   </div>
                 </div>
@@ -72,8 +72,30 @@
                   <div class="uk-form-controls">
                     <select class="uk-select" id="menu_type">
                       <option value="0"><?= $this->lang->line('notification_select_type'); ?></option>
-                      <option value="1" <?php if($this->admin_model->getMenuSpecifyType($idlink) == '1') echo 'selected'; ?>><?= $this->lang->line('option_internal_url'); ?></option>
-                      <option value="2" <?php if($this->admin_model->getMenuSpecifyType($idlink) == '2') echo 'selected'; ?>><?= $this->lang->line('option_external_url'); ?></option>
+                      <option value="1" <?php if($this->admin_model->getMenuSpecifyRow($idlink, 'type') == '1') echo 'selected'; ?>><?= $this->lang->line('option_internal_url'); ?></option>
+                      <option value="2" <?php if($this->admin_model->getMenuSpecifyRow($idlink, 'type') == '2') echo 'selected'; ?>><?= $this->lang->line('option_external_url'); ?></option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="uk-margin-small">
+              <div class="uk-grid-small" uk-grid>
+                <div class="uk-inline uk-width-1-2@s">
+                  <label class="uk-form-label"><?= $this->lang->line('protected_select_type'); ?></label>
+                  <div class="uk-form-controls">
+                    <select class="uk-select" id="menu_main">
+                      <option value="0" <?php if($this->admin_model->getMenuSpecifyRow($idlink, 'isProtected') == '2') echo 'selected'; ?>><?= $this->lang->line('option_off'); ?></option>
+                      <option value="1" <?php if($this->admin_model->getMenuSpecifyRow($idlink, 'isProtected') == '1') echo 'selected'; ?>><?= $this->lang->line('option_on'); ?></option>
+                    </select>
+                  </div>
+                </div>
+                <div class="uk-inline uk-width-1-2@s">
+                  <label class="uk-form-label"><?= $this->lang->line('visible_select_type'); ?></label>
+                  <div class="uk-form-controls">
+                    <select class="uk-select" id="menu_main">
+                      <option value="0" <?php if($this->admin_model->getMenuSpecifyRow($idlink, 'isVisible') == '2') echo 'selected'; ?>><?= $this->lang->line('option_off'); ?></option>
+                      <option value="1" <?php if($this->admin_model->getMenuSpecifyRow($idlink, 'isVisible') == '1') echo 'selected'; ?>><?= $this->lang->line('option_on'); ?></option>
                     </select>
                   </div>
                 </div>
