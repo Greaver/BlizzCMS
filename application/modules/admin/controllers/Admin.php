@@ -365,14 +365,18 @@ class Admin extends MX_Controller {
 
     public function updatemenu()
     {
-        $id = $this->input->post('id');
-        $name = $this->input->post('name');
-        $url = $this->input->post('url');
-        $icon = $this->input->post('icon');
-        $main = $this->input->post('main');
-        $child = $this->input->post('child');
-        $type = $this->input->post('type');
-        echo $this->admin_model->updateSpecifyMenu($id, $name, $url, $icon, $main, $child, $type);
+        $data = [
+            'id' => $this->input->post('id'),
+            'name' => $this->input->post('name'),
+            'url' => $this->input->post('url'),
+            'icon' => $this->input->post('icon'),
+            'main' => $this->input->post('main'),
+            'child' => $this->input->post('child'),
+            'type' => $this->input->post('type'),
+            'visible' => $this->input->post('visible'),
+            'protected' => $this->input->post('protected')
+        ];
+        echo $this->admin_model->updateSpecifyMenu($data);
     }
 
     public function deletemenu()

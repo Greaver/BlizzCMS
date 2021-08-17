@@ -251,18 +251,20 @@ class Admin_model extends CI_Model {
         return true;
     }
 
-    public function updateSpecifyMenu($id, $name, $url, $icon, $main, $child, $type)
+    public function updateSpecifyMenu($data)
     {
-        $update = array(
-            'name' => $name,
-            'url' => $url,
-            'icon' => $icon,
-            'main' => $main,
-            'child' => $child,
-            'type' => $type
-        );
+        $update = [
+            'name' => $data['name'],
+            'url' => $data['url'],
+            'icon' => $data['icon'],
+            'main' => $data['main'],
+            'child' => $data['child'],
+            'type' => $data['type'],
+            'isVisible' => $data['visible'],
+            'isProtected' => $data['protected'],
+        ];
 
-        $this->db->where('id', $id)->update('menu', $update);
+        $this->db->where('id', $data['id'])->update('menu', $update);
         return true;
     }
 

@@ -84,7 +84,7 @@
                 <div class="uk-inline uk-width-1-2@s">
                   <label class="uk-form-label"><?= $this->lang->line('protected_select_type'); ?></label>
                   <div class="uk-form-controls">
-                    <select class="uk-select" id="menu_main">
+                    <select class="uk-select" id="menu_protected">
                       <option value="0" <?php if($this->admin_model->getMenuSpecifyRow($idlink, 'isProtected') == '2') echo 'selected'; ?>><?= $this->lang->line('option_off'); ?></option>
                       <option value="1" <?php if($this->admin_model->getMenuSpecifyRow($idlink, 'isProtected') == '1') echo 'selected'; ?>><?= $this->lang->line('option_on'); ?></option>
                     </select>
@@ -93,7 +93,7 @@
                 <div class="uk-inline uk-width-1-2@s">
                   <label class="uk-form-label"><?= $this->lang->line('visible_select_type'); ?></label>
                   <div class="uk-form-controls">
-                    <select class="uk-select" id="menu_main">
+                    <select class="uk-select" id="menu_visible">
                       <option value="0" <?php if($this->admin_model->getMenuSpecifyRow($idlink, 'isVisible') == '2') echo 'selected'; ?>><?= $this->lang->line('option_off'); ?></option>
                       <option value="1" <?php if($this->admin_model->getMenuSpecifyRow($idlink, 'isVisible') == '1') echo 'selected'; ?>><?= $this->lang->line('option_on'); ?></option>
                     </select>
@@ -121,6 +121,8 @@
         var main = $.trim($('#menu_main').val());
         var child = $.trim($('#menu_child').val());
         var type = $.trim($('#menu_type').val());
+        var visible = $.trim($('#menu_visible').val());
+        var protected = $.trim($('#menu_protected').val());
         if(name == ''){
           $.amaran({
             'theme': 'awesome error',
@@ -156,7 +158,7 @@
         $.ajax({
           url:"<?= base_url($lang.'/admin/menu/update'); ?>",
           method:"POST",
-          data:{id, name, url, icon, main, child, type},
+          data:{id, name, url, icon, main, child, type, visible, protected},
           dataType:"text",
           beforeSend: function(){
             $.amaran({

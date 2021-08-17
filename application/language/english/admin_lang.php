@@ -166,6 +166,8 @@ $lang['placeholder_command'] = 'Command';
 $lang['placeholder_emulator'] = 'Emulator';
 $lang['placeholder_size'] = 'Size';
 $lang['placeholder_select_type'] = 'Select a Type';
+$lang['protected_select_type'] = 'is a Protected element?';
+$lang['visible_select_type'] = 'is a Visible element?';
 
 /*Config Lang*/
 $lang['conf_website_name'] = 'Website Name';
@@ -231,6 +233,7 @@ $lang['option_internal_url'] = 'Internal URL';
 $lang['option_external_url'] = 'External URL';
 $lang['option_on'] = 'On';
 $lang['option_off'] = 'Off';
+$lang['option_select'] = 'Select a option';
 
 /*Count Lang*/
 $lang['count_accounts_created'] = 'Accounts created';
