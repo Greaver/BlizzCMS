@@ -210,8 +210,8 @@ $lang['page_404_description'] = 'It looks like the page you are looking could no
 
 /*Panel Lang*/
 $lang['panel_acc_rank'] = 'Account Rank';
-$lang['panel_dp'] = 'Donor Points';
-$lang['panel_vp'] = 'Vote Points';
+$lang['panel_dp'] = 'Galactic Credits';
+$lang['panel_vp'] = 'Vortex Points';
 $lang['panel_expansion'] = 'Expansion';
 $lang['panel_member'] = 'Member since';
 $lang['panel_chars_list'] = 'Characters List';
