@@ -68,6 +68,16 @@ class Admin_model extends CI_Model {
         }
     }
 
+    public function getDonateLogs()
+    {
+        return $this->db->order_by('id', 'DESC')->get('donate_logs')->result();
+    }
+
+    public function getVoteLogs()
+    {
+        return $this->db->order_by('id', 'DESC')->get('votes_logs')->result();
+    }
+
     public function updateAccountData($id, $dp, $vp)
     {
         $update = array(
@@ -1364,5 +1374,22 @@ class Admin_model extends CI_Model {
     public function getDownloadSpecifyType($id)
     {
         return $this->db->select('type')->where('id', $id)->get('download')->row('type');
+    }
+
+    /**
+     * Tickets
+     */
+
+    public function countTickets($multirealm)
+    {
+        $this->multirealm = $multirealm;
+        $this->multirealm->from('gm_ticket');
+        return $this->multirealm->count_all_results();
+    }
+
+    public function ticketsList($multirealm)
+    {
+        $this->multirealm = $multirealm;
+        return $this->multirealm->select('*')->limit($this->_pageNumber, $this->_offset)->get('gm_ticket')->result();
     }
 }

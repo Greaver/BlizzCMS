@@ -51,12 +51,15 @@ $lang['admin_nav_changelogs'] = 'Änderungen';
 $lang['admin_nav_pages'] = 'Seiten';
 $lang['admin_nav_donate_methods'] = 'Spenden Methoden';
 $lang['admin_nav_topsites'] = 'Topseiten';
-$lang['admin_nav_donate_vote_logs'] = 'Spenden/Vote Logs';
+$lang['admin_nav_donate_logs'] = 'Logs spenden';
+$lang['admin_nav_vote_logs'] = 'Abstimmungsergebnis';
 $lang['admin_nav_store'] = 'Store';
 $lang['admin_nav_manage_store'] = 'Store bearbeiten';
 $lang['admin_nav_forum'] = 'Forum';
 $lang['admin_nav_manage_forum'] = 'Forum bearbeiten';
 $lang['admin_nav_logs'] = 'Logs System';
+$lang['admin_nav_Tickets'] = 'Tickets';
+$lang['admin_nav_manage_tickets'] = 'Tickets bearbeiten';
 
 /*Sections Lang*/
 $lang['section_general_settings'] = 'Allgemeine Einstellungen';

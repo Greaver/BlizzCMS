@@ -51,13 +51,16 @@ $lang['admin_nav_changelogs'] = 'Changelogs';
 $lang['admin_nav_pages'] = 'Pages';
 $lang['admin_nav_donate_methods'] = 'Donate Methods';
 $lang['admin_nav_topsites'] = 'Topsites';
-$lang['admin_nav_donate_vote_logs'] = 'Donate/Vote Logs';
+$lang['admin_nav_donate_logs'] = 'Donate Logs';
+$lang['admin_nav_vote_logs'] = 'Vote Logs';
 $lang['admin_nav_store'] = 'Store';
 $lang['admin_nav_manage_store'] = 'Manage Store';
 $lang['admin_nav_forum'] = 'Forum';
 $lang['admin_nav_manage_forum'] = 'Manage Forum';
 $lang['admin_nav_logs'] = 'Logs System';
 $lang['admin_nav_download'] = 'Download';
+$lang['admin_nav_Tickets'] = 'Tickets';
+$lang['admin_nav_manage_tickets'] = 'Manage Tickets';
 
 /*Sections Lang*/
 $lang['section_general_settings'] = 'General Settings';

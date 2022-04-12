@@ -51,13 +51,15 @@ $lang['admin_nav_changelogs'] = 'Changelogs';
 $lang['admin_nav_pages'] = 'Pages';
 $lang['admin_nav_donate_methods'] = 'Méthodes de payements';
 $lang['admin_nav_topsites'] = 'Topsites';
-$lang['admin_nav_donate_vote_logs'] = 'Logs de Dons/Vote';
-$lang['admin_nav_store'] = 'Boutique';
+$lang['admin_nav_donate_logs'] = 'Journaux de dons';
+$lang['admin_nav_vote_logs'] = 'Journaux de vote';
 $lang['admin_nav_manage_store'] = 'Gérer la Boutique';
 $lang['admin_nav_forum'] = 'Forum';
 $lang['admin_nav_manage_forum'] = 'Gérer le Forum';
 $lang['admin_nav_logs'] = 'Logs du Systeme';
 $lang['admin_nav_download'] = 'Téléchargement';
+$lang['admin_nav_Tickets'] = 'Tickets';
+$lang['admin_nav_manage_tickets'] = 'Gérer le Tickets';
 
 /*Sections Lang*/
 $lang['section_general_settings'] = 'Réglages Généraux';

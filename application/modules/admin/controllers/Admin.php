@@ -1190,6 +1190,28 @@ class Admin extends MX_Controller {
         echo $this->admin_model->delSpecifyDonation($value);
     }
 
+    public function donatelogs()
+    {
+        $data = [
+            'pagetitle' => 'Donate Logs',
+            'lang' => $this->lang->lang(),
+            'donations' => $this->admin_model->getDonateLogs()
+        ];
+
+        $this->template->build('donate/donate_logs', $data);
+    }
+
+    public function votelogs()
+    {
+        $data = [
+            'pagetitle' => 'Vote Logs',
+            'lang' => $this->lang->lang(),
+            'votes' => $this->admin_model->getVoteLogs()
+        ];
+
+        $this->template->build('vote/vote_logs', $data);
+    }
+
     /**
      * Forum functions
      */
@@ -1431,5 +1453,74 @@ class Admin extends MX_Controller {
     {
         $id = $this->input->post('value');
         echo $this->admin_model->delSpecifyDownload($id);
+    }
+
+    /**
+     * Tickets
+     */
+
+    public function managetickets()
+    {
+        $data = [
+            'pagetitle' => $this->lang->line('button_admin_panel'),
+            'lang' => $this->lang->lang(),
+        ];
+
+        $config['total_rows'] = $this->admin_model->countStoreCategories();
+        $data['total_count'] = $config['total_rows'];
+        $config['suffix'] = '';
+
+        if ($config['total_rows'] > 0)
+        {
+            $page_number = $this->uri->segment(4);
+            $config['base_url'] = base_url().'admin/store/';
+
+            if (empty($page_number))
+                $page_number = 1;
+
+            $offset = ($page_number - 1) * $this->pagination->per_page;
+            $this->admin_model->setPageNumber($this->pagination->per_page);
+            $this->admin_model->setOffset($offset);
+            $this->pagination->initialize($config);
+
+            $data['pagination_links'] = $this->pagination->create_links();
+            $data['realmsList'] = $this->admin_model->realmsList();
+        }
+
+        $this->template->build('tickets/manage_tickets', $data);
+    }
+
+    public function ticketrealm($id)
+    {
+        $multirealm = $this->wowrealm->getRealmConnectionData($id);
+        $data = [
+            'pagetitle' => $this->lang->line('button_admin_panel'),
+            'idlink' => $id,
+            'lang' => $this->lang->lang(),
+            'multirealm' => $multirealm
+        ];
+
+        $config['total_rows'] = $this->admin_model->countTickets($multirealm);
+        $data['total_count'] = $config['total_rows'];
+        $config['suffix'] = '';
+
+        if ($config['total_rows'] > 0)
+        {
+            $page_number = $this->uri->segment(6);
+            $config['base_url'] = base_url().'admin/tickets/realm/'.$id.'/';
+
+            if (empty($page_number))
+                $page_number = 1;
+
+            $offset = ($page_number - 1) * $this->pagination->per_page;
+            $this->admin_model->setPageNumber($this->pagination->per_page);
+            $this->admin_model->setOffset($offset);
+            $this->pagination->initialize($config);
+
+            $data['pagination_links'] = $this->pagination->create_links();
+            $data['ticketsList'] = $this->admin_model->ticketsList($multirealm);
+        }
+
+        $this->template->build('tickets/tickets', $data);
     }
 }
